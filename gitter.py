@@ -64,7 +64,7 @@ if __name__ == '__main__':
         start = start.strip()
         if "Y" in start.upper() or len(start.upper()) < 1 or start == 1:
             print()
-            clone = f"git@github.com:{github_username}}/{name}.git"
+            clone = f"git@github.com:{github_username}/{name}.git"
             subprocess.run(["git", "clone", clone])
             if itermcd == 1:
                 iterm2.run_until_complete(main)   
