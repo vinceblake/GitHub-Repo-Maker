@@ -1,12 +1,12 @@
 from github import Github
-import os, subprocess
+import keyring, os, subprocess
 import iterm2
 
 # VARIABLES
 rootdir = "/users/Vince/Code" # Root directory for github repos
 itermcd = 1 # cd into the new repo directory at the end?
 github_username = "vinceblake"
-github_token = os.environ.get('GITHUB')
+github_token = keyring.get_password("github","token")
 
 # GITHUB AUTHENTICATION
 g = Github(github_token)
