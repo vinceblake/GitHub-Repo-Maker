@@ -1,5 +1,5 @@
 from github import Github
-import keyring, os, subprocess
+import keyring, os, sys, subprocess
 import iterm2
 
 # VARIABLES
@@ -32,8 +32,12 @@ if __name__ == '__main__':
     try:
         os.chdir(rootdir)
         name = ''
+        if len(sys.argv) > 1:
+            name = sys.argv[1] # Allow naming of repository from parameter with initial call
+            
         while not name: 
             name = input("Repo Name: ").strip()
+            
         name = name.lower().replace(" ", "-")
 
         desc = input("\nRepo description (Leave blank for none):\n")
